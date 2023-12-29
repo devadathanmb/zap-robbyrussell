@@ -6,7 +6,7 @@ Famous [oh-my-zsh](https://ohmyz.sh/) **robbyrussell** theme ported for [zap zsh
 
 ## Preview
 
-![Preview image](./assets/preview.png)
+![Preview image](assets/preview.png)
 
 ## Usage
 
