@@ -1,3 +1,8 @@
+#!/bin/zsh
+
+# Disable default virtual env prompt
+export VIRTUAL_ENV_DISABLE_PROMPT=1
+
 # Sets color variable such as $fg, $bg, $color and $reset_color
 autoload -U colors && colors
 
@@ -99,8 +104,15 @@ function git_repo_name() {
     fi
 }
 
-PROMPT="%(?:%{$fg_bold[green]%}%1{➜%} :%{$fg_bold[red]%}%1{➜%} ) %{$fg[cyan]%}%c%{$reset_color%}"
+python_venv_info() {
+    if [ -n "$VIRTUAL_ENV" ]; then
+        printf "(%s)" "$(basename $VIRTUAL_ENV)"
+    fi
+}
+
+PROMPT="%(?:%{$fg_bold[green]%}%1{➜%}:%{$fg_bold[red]%}%1{➜%}) %{$fg[cyan]%}%c%{$reset_color%}"
 PROMPT+=' $(git_prompt_info)'
+RPROMPT="\$(python_venv_info)"
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[blue]%}git:(%{$fg[red]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} "
