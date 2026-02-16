@@ -23,7 +23,7 @@ plug "devadathanmb/zap-robbyrussell"
 2. Reload your shell configuration (Zap will install the plugin automatically)
 
 ```zsh
-source ~/.zshrc # Zap will install the plugin automatically
+source ~/.zshrc
 ```
 
 *or just restart the terminal*
